@@ -4,8 +4,8 @@
   "description": "## Démarrer le projet",
   "main": "index.js",
   "scripts": {
-    "sass": "sass sass/photographer.scss css/photographer.css", 
-   "sass:watch": "sass sass/photographer.scss css/photographer.css --watch"
+    "sass": "sass sass/style.scss css/style.css", 
+   "sass:watch": "sass sass/style.scss css/style.css --watch"
   },
   "repository": {
     "type": "git",
