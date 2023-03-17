@@ -11,10 +11,14 @@
     <header class="header">
       <a class="header_link" href="index.html"><img src="assets/images/logo.png" class="header_link-logo" alt=""/></a>
   </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    <main id="main_photographer">
+      <div class="photographer_header">
+          <div class="button_container">
+            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          </div>
       </div>
+      </div>
+    <div class="media"></div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -25,7 +29,6 @@
 				<form>
 					<div>
 						<label>Prénom</label>
-
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
@@ -33,5 +36,7 @@
 		</div>
     <script src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
+    <script src="./scripts/factories/factory.js"></script>
+    <script src="./scripts/factories/media.js"></script>
   </body>
 </html>
