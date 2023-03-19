@@ -1,5 +1,4 @@
 // Récupération de l'id du photographe depuis l'url
-
 const urlParams = (new URL (document.location)).searchParams;//on crée l'objet url et la méthode 'searchParams' récupère les paramètres d'url, 
 const photographerId = urlParams.get('id');//méthode 'get'récupère la valeur de 'id' du photographe dans l'url
 
