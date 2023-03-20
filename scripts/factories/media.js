@@ -34,7 +34,7 @@ function mediaFactory(data){
         mediaLikes.appendChild(mediaCardLikes);
 
         const mediaCardLikesHeart = document.createElement('i');
-        mediaCardLikesHeart.classList.add('media_likes-heart', 'fa-solid', 'fa-heart');
+        mediaCardLikesHeart.classList.add('fa-regular', 'fa-heart', 'media_likes-heart');
         mediaLikes.appendChild(mediaCardLikesHeart);
 
         return mediaCardElement;

@@ -169,62 +169,101 @@ body {
   align-items: center;
 }
 
-#contact_modal {
+.contact_modal {
   display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(54, 29, 29, 0.4);
 }
 
 .modal {
-  border-radius: 5px;
   background-color: #DB8876;
-  width: 50%;
+  margin: 5% auto;
+  width: 100%;
+  max-width: 500px;
+}
+
+.modal_body {
+  padding: 15px 8%;
+  margin: 15px auto;
+}
+
+.modal_header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
 }
 
-.modal header {
-  justify-content: space-between;
-  width: 100%;
-}
-
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header h2 {
-  font-size: 64px;
+.modal_title-h2 {
+  margin: 0;
+  font-size: 3rem;
   font-weight: normal;
-  text-align: center;
 }
 
-form {
+.modal_close-icon {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
+.form {
   display: flex;
-  width: 100%;
   flex-direction: column;
-  align-items: flex-start;
 }
 
-form label {
+.form_title {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 1.2rem;
 }
 
-form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  height: 68px;
+.text-control {
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+#textarea {
+  height: 80px;
+}
+
+.button_send {
+  margin-top: 1.5rem;
+}
+
+#confirm_contact-modal {
+  display: none;
+}
+
+.modal_confirm {
+  display: flex;
+  height: 510px;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.modal_confirm-h2 {
+  margin-top: 10rem;
+  font-size: 1.5rem;
+}
+
+.modal_header-confirmation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirmation_logo {
+  width: 30%;
+}
+
+.button_close {
+  margin-top: 9rem;
 }
 
 .media {
@@ -242,7 +281,7 @@ form input {
 
 .media_element {
   background-color: #C4C4C4;
-  width: 350px;
+  width: 360px;
   height: 300px;
   object-fit: cover;
 }

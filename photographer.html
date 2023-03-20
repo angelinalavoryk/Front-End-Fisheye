@@ -13,7 +13,9 @@
   </head>
   <body>
     <header class="header">
-      <a class="header_link" href="index.html"><img src="assets/images/logo.png" class="header_link-logo" alt=""/></a>
+      <a class="header_link" href="index.html">
+        <img src="assets/images/logo.png" class="header_link-logo" alt=""/>
+      </a>
   </header>
     <main id="main_photographer">
       <div class="photographer_header">
@@ -21,23 +23,60 @@
             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
           </div>
       </div>
-      </div>
-      <div id="contact_modal">
+
+<!--  -->
+      <div class="contact_modal" id="modal_container">
         <div class="modal">
-          <header>
-            <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" alt=""/>
+          <div class="modal_body">
+          <header class="modal_header">
+            <h2 class="modal_title-h2">Contactez-moi</h2>
+            <img src="assets/icons/close.svg" class="modal_close-icon" onclick="closeModal()" alt="icone de fermeture"/>
           </header>
-          <form>
-            <div>
-              <label>Prénom</label>
-            </div>
-            <button class="contact_button">Envoyer</button>
+
+          <form class="form">
+              <label class="form_title">Prénom</label>
+              <input class="text-control" type="text" id="first" name="first"/><br>
+              <span id="errorName"></span>
+            
+            
+              <label class="form_title">Nom</label>
+              <input class="text-control" type="text" id="first" name="first" /><br>
+              <span id="errorLastName"></span>
+            
+            
+              <label class="form_title">E-mail</label>
+              <input class="text-control" type="email" id="first" name="first" /><br>
+              <span id="errorEmail"></span>
+
+              <label class="form_title">Votre message</label>
+              <textarea id="textarea" class="text-control" name="subject"></textarea>
+              <span id="errorText"></span>
+              
+            <button class="contact_button button_send">Envoyer</button>
           </form>
         </div>
+        <!-- Message de confirmation -->
+          <div class="contact_modal" id="confirm_contact-modal"> 
+            <div class="modal modal_confirm">
+              <header class="modal_header-confirmation">
+                <img src="assets/images/logo.png" class="confirmation_logo" alt=""/>
+                <img src="assets/icons/close.svg" class="modal_close-icon close" onclick="closeModal()" alt="icone de fermeture"/>
+              </header>
+                <h2 class="modal_confirm-h2">Merci d'avoir envoyé votre message.</h2>
+                <button class="contact_button button_close">Fermer</button>
+            </div>
+            
+          </div>
+          
+        </div>
       </div>
-    <section class="media">
       
+
+     
+
+
+    <section class="media">
+
     </section>
   </main>
   
