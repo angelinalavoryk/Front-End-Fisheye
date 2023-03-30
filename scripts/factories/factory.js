@@ -95,10 +95,12 @@
         profileImgContainer.appendChild(profileImg);
     
         // photographerHeader.appendChild(profileInfosElement);
+
+        
     
         return profileInfosElement;
     }
-  return { name, picture,  getUserCardDOM, getUserProfilDOM};//renvoie l'objet name et img en appelant la fonction 'getUserCardDOM' qui est dans la fonction 'photographerFactory'
+  return { name, picture, getUserCardDOM, getUserProfilDOM};//renvoie l'objet name et img en appelant la fonction 'getUserCardDOM' qui est dans la fonction 'photographerFactory'
 }
 
 

@@ -18,71 +18,115 @@
       </a>
   </header>
     <main id="main_photographer">
+      <!-- Header info photographer -->
       <div class="photographer_header">
           <div class="button_container">
             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
           </div>
       </div>
+           <!--  Filter-->
+     <section class="filter">
+      <div class="filter_container">
+      <h3 id="trierPar">Trier par </h3>
+      <div class="dropdownMenu">
+          <div class="filter-select">
+              <a href="#" role="button" class="filter-select__trigger" aria-controls="filter-options"
+                  aria-haspopup="listbox" aria-label="Trier par">
+                  <span>Popularité</span>
+                  <div class="arrow"></div>
+              </a>
+              <div class="filter-options-container" role="listbox" id="filter-options">
+                  <a href="#" class="filter-option selected">Popularité</a>
+                  <a href="#" class="filter-option">Date</a>
+                  <a href="#" class="filter-option">Titre</a>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
 
-<!--  -->
-      <div class="contact_modal" id="modal_container">
-        <div class="modal">
-          <div class="modal_body">
-          <header class="modal_header">
-            <h2 class="modal_title-h2">Contactez-moi</h2>
-            <img src="assets/icons/close.svg" class="modal_close-icon" onclick="closeModal()" alt="icone de fermeture"/>
-          </header>
+<!-- Contact Forme -->
+<div class="contact_modal" id="modal_container" role="dialog" aria-labelledby="modal_title">
+  <div class="modal">
+    <div class="modal_body">
+      <header class="modal_header">
+        <div class="modal_title" id="modal_title">
+          <h2 class="modal_title-h2">Contactez-moi</h2>
+          <img src="assets/icons/close.svg" class="modal_close-icon" onclick="closeModal()" alt="icone de fermeture" />
+        </div>
+        <h3 class="modal_title-name"></h3>
+      </header>
 
-          <form class="form">
-              <label class="form_title">Prénom</label>
-              <input class="text-control" type="text" id="first" name="first"/><br>
-              <span id="errorName"></span>
-            
-            
-              <label class="form_title">Nom</label>
-              <input class="text-control" type="text" id="first" name="first" /><br>
-              <span id="errorLastName"></span>
-            
-            
-              <label class="form_title">E-mail</label>
-              <input class="text-control" type="email" id="first" name="first" /><br>
-              <span id="errorEmail"></span>
-
-              <label class="form_title">Votre message</label>
-              <textarea id="textarea" class="text-control" name="subject"></textarea>
-              <span id="errorText"></span>
-              
-            <button class="contact_button button_send">Envoyer</button>
-          </form>
+      <form class="form" name="reserve" action="submit-form.php" method="post" autocomplete="on">
+        <label class="form_title" for="first">Prénom</label>
+        <input class="text-control" type="text" id="first" name="first" placeholder="prénom" required aria-required="true" aria-label="Votre prénom" />
+        <span id="errorName" role="alert" aria-live="assertive" aria-atomic="true"></span>
+    
+        <label class="form_title" for="last">Nom</label>
+        <input class="text-control" type="text" id="last" name="last" placeholder="nom" required aria-required="true" aria-label="Votre nom" />
+        <span id="errorLastName" role="alert" aria-live="assertive" aria-atomic="true"></span>
+    
+        <label class="form_title" for="email">E-mail</label>
+        <input class="text-control" type="email" id="email" name="email" placeholder="prénom.nom@gmail.com" required aria-required="true" aria-label="Votre adresse email" />
+        <span id="errorEmail" role="alert" aria-live="assertive" aria-atomic="true"></span>
+    
+        <label class="form_title" for="text">Votre message</label>
+        <textarea id="text" class="text-control" name="text" required aria-required="true" aria-label="Votre message"></textarea>
+        <span id="errorText" role="alert" aria-live="assertive" aria-atomic="true"></span>
+    
+        <button class="contact_button button_send" type="submit" role="button" aria-label="Envoyer le formulaire de contact">Envoyer</button>
+    </form>
         </div>
         <!-- Message de confirmation -->
-          <div class="contact_modal" id="confirm_contact-modal"> 
+          <div class="contact_modal" id="confirm_contact-modal" role="dialog" aria-modal="true"> 
             <div class="modal modal_confirm">
-              <header class="modal_header-confirmation">
-                <img src="assets/images/logo.png" class="confirmation_logo" alt=""/>
+              <header class="modal_header-confirmation" aria-labelledby="confirmation_title">
+                <img src="assets/images/logo.png" class="confirmation_logo" alt="logo"/>
                 <img src="assets/icons/close.svg" class="modal_close-icon close" onclick="closeModal()" alt="icone de fermeture"/>
               </header>
-                <h2 class="modal_confirm-h2">Merci d'avoir envoyé votre message.</h2>
-                <button class="contact_button button_close">Fermer</button>
+                <h2 class="modal_confirm-h2" id="confirmation_title">Merci d'avoir envoyé votre message.</h2>
+                <button class="contact_button btn_close" id="button_close" id="button_close" aria-describedby="confirmation_description">Fermer</button>
             </div>
-            
           </div>
-          
         </div>
       </div>
-      
+      <!-- Gallerie de photos des photographes -->
+    <section class="media"></section>
 
-     
-
-
-    <section class="media">
-
+    <!-- Nobre de likes totale et le prix du photographe/jour -->
+    <section class="total_likes_price-container">
+      <div class="total_likes">
+        <p class="number_likes total-p"></p>
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <div class="price_container ">
+        <p class="price total-p"></p>
+      </div>
     </section>
+
+    <!-- LightBox Slider -->
+    <section class="lightBox_container">
+      <div class="lightBox_slider">
+      
+      <div class="lightBox_commandes-container">
+        <button class="prev_and_next" id="prev"><em class="fas fa-chevron-left"></em></button>
+        <button class="prev_and_next" id="next"><em class="fas fa-chevron-right"></em></button>
+        <button class="lightBox_close"><em class="fas fa-times close-lightbox-media"></em></button>
+        <h2 class="lightBox_slider-title"></h2>
+      </div>
+    </div>
+    </section>
+
+
+
+
+
   </main>
-  
+  <script src="./scripts/factories/lightBox.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
     <script src="./scripts/factories/factory.js"></script>
     <script src="./scripts/factories/media.js"></script>
+    <script src="./scripts/utils/sortedMedia.js"></script>
   </body>
 </html>

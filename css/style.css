@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -110,6 +109,10 @@ body {
     margin-bottom: 80px;
   }
 }
+a {
+  text-decoration: none;
+}
+
 .photographer_header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -195,6 +198,11 @@ body {
 
 .modal_header {
   display: flex;
+  flex-direction: column;
+}
+
+.modal_title {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -205,10 +213,17 @@ body {
   font-weight: normal;
 }
 
+.modal_title-name {
+  font-size: 3rem;
+  font-weight: normal;
+  margin: 0;
+}
+
 .modal_close-icon {
   cursor: pointer;
   width: 32px;
   height: 32px;
+  align-items: flex-start;
 }
 
 .form {
@@ -226,10 +241,12 @@ body {
   border: none;
   border-radius: 5px;
   font-size: 1.2rem;
+  padding: 10px;
 }
 
-#textarea {
+#text {
   height: 80px;
+  font-size: 1rem;
 }
 
 .button_send {
@@ -262,12 +279,12 @@ body {
   width: 30%;
 }
 
-.button_close {
+.btn_close {
   margin-top: 9rem;
 }
 
 .media {
-  margin-top: 9rem;
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -284,6 +301,7 @@ body {
   width: 360px;
   height: 300px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .media_text-container {
@@ -291,7 +309,7 @@ body {
   justify-content: space-between;
   color: #901C1C;
   align-items: center;
-  max-width: 90%; /* Empêcher le texte de dépasser la largeur de l'élément parent */
+  max-width: 90%;
   gap: 5px;
 }
 
@@ -299,9 +317,9 @@ body {
   margin: 0;
   font-size: 1.2rem;
   max-width: 70%;
-  white-space: nowrap; /* Empêcher le retour à la ligne */
-  overflow: hidden; /* Cacher le texte qui déborde */
-  text-overflow: ellipsis; /* Ajouter des points de suspension */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .media_likes-container {
@@ -318,6 +336,272 @@ body {
 
 .media_likes-heart {
   font-size: 20px;
+  cursor: pointer;
+}
+
+.lightBox_container {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.lightBox_slider {
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  list-style: none;
+}
+
+li {
+  width: 100%;
+  height: 100%;
+}
+li .media_img {
+  margin: auto;
+  display: flex;
+  height: 85%;
+  width: 50%;
+  border-radius: 5px;
+  background-color: rgb(134, 134, 134);
+  object-fit: cover;
+}
+li .media_video {
+  display: flex;
+  margin: auto;
+  height: 85%;
+  width: 50%;
+  border-radius: 5px;
+  background-color: rgb(134, 134, 134);
+  object-fit: cover;
+}
+
+.lightBox_commandes-container {
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.lightBox_commandes-container .lightBox_close {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  top: 2%;
+  right: 7%;
+  font-size: x-large;
+  cursor: pointer;
+  color: #901C1C;
+}
+.lightBox_commandes-container .prev_and_next {
+  position: absolute;
+  width: 60px;
+  height: 100px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #901C1C;
+}
+.lightBox_commandes-container em {
+  font-size: 40px;
+  position: relative;
+}
+
+.lightBox_commandes-container button:nth-child(1) {
+  top: 40%;
+  transform: translate(-50%);
+  left: 10%;
+}
+
+.lightBox_commandes-container button:nth-child(1) em {
+  left: -10px;
+}
+
+.lightBox_commandes-container button:nth-child(2) {
+  top: 40%;
+  transform: translate(50%);
+  right: 7%;
+}
+
+.lightBox_commandes-container button:nth-child(2) em {
+  right: 7%;
+}
+
+.lightBox_slider-title {
+  position: absolute;
+  bottom: 2%;
+  left: 25%;
+  margin: auto;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #901C1C;
+}
+
+.total_likes_price-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+  position: fixed;
+  padding: 0.5rem 1rem;
+  bottom: 0;
+  right: 5%;
+  background-color: #db8876;
+  height: auto;
+  width: 270px;
+  border-radius: 0.6rem 0.6rem 0 0;
+  color: black;
+  margin: auto;
+}
+
+.total_likes {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.total-p {
+  margin: 0;
+}
+
+.filter {
+  display: block;
+  margin: 0 100px;
+  margin-top: 20px;
+}
+
+.trierPar {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.dropdownMenu {
+  width: 10.625rem;
+}
+
+.filter_container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.filter-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-select__trigger {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.3rem;
+  color: white;
+  height: 3rem;
+  background: #901C1C;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter-options-container {
+  position: absolute;
+  display: block;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #901C1C;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.filter-select.open .filter-options-container {
+  opacity: 1;
+  visibility: visible;
+}
+.filter-select.open .filter-select__trigger {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.filter-option {
+  display: block;
+  margin: 0 1rem 0;
+  font-size: 1.3rem;
+  color: white;
+  line-height: 4rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.filter-option:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.filter-option.selected {
+  display: none;
+}
+.filter-option:not(.selected) {
+  border-top: solid 0.1rem white;
+}
+
+.arrow {
+  position: relative;
+  height: 1rem;
+  margin: 30px;
+}
+
+.arrow::before,
+.arrow::after {
+  content: "";
+  position: absolute;
+  width: 0.13rem;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+.arrow::before {
+  left: -0.2rem;
+  transform: rotate(45deg);
+  background-color: white;
+}
+
+.arrow::after {
+  left: 0.5rem;
+  transform: rotate(-45deg);
+  background-color: white;
+}
+
+.open .arrow::before {
+  left: -0.2rem;
+  transform: rotate(-45deg);
+}
+
+.open .arrow::after {
+  left: 0.5rem;
+  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=style.css.map */
