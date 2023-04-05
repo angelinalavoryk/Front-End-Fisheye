@@ -64,12 +64,23 @@ async function displayGlobalInfo() {
     priceElement.textContent = `${photographer.price}€ / jour`;
   }
 
+
+//   Spinner loader
+  const spinner = document.querySelector('.spinner');
+  setTimeout(() => {
+    spinner.style.display = 'none';
+    document.body.classList.add('loaded');
+  }, 4000);
+  
+
+
   
 async function init() {
   const media = await getMediaByPhotographerID(photographerId);
   const photographer = await getPhotographerById(photographerId);
   displayData(photographer);
   displayPhoto(media);
+  lightBoxInstance.populate(media);
   displayGlobalInfo();
 }
 init();

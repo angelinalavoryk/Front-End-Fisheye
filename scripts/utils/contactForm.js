@@ -5,8 +5,8 @@ function displayModal() {
   modalTitle.textContent = photographerName;
   modal.style.display = "block";
   document.addEventListener("keydown", escapeModaleKeyDown);
-
   }
+
 function closeModal() {
     const modal = document.getElementById("modal_container");
     modal.style.display = "none";
@@ -137,3 +137,4 @@ form.addEventListener('submit', function (e) {  //le methode addEventListener aj
 
   const confirmationCloseBtn = document.querySelector("#button_close");//sélectionne élément du DOM avec son id #btn-closed. Bouton "fermer".
 document.querySelector("#button_close").addEventListener("click", closeModal);//ajout de l'évenement sur le bouton "fermer" qui permet de fermer le message de confirmation d'inscription. 
+

@@ -1,0 +1,126 @@
+// ----------------------- Filter -------------------------
+.filter {
+    display: block;
+    margin: 0 100px;
+    margin-top: 20px;
+  }
+  
+  .trierPar{
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+  
+  .dropdownMenu {
+    width: 10.625rem;
+  }
+  .filter_container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .filter-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-select__trigger {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+    color: $white;
+    height: 3rem;
+    background: $primary;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .filter-options-container {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $primary;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .filter-select.open {
+    .filter-options-container {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .filter-select__trigger {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  
+  .filter-option {
+    // position: relative;
+    display: block;
+    margin: 0 1rem 0;
+    font-size: 1.3rem;
+    color: $white;
+    line-height: 4rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    &.selected {
+      display: none;
+    }
+    &:not(.selected) {
+      border-top: solid 0.1rem $white;
+    }
+  }
+  
+  // creation arrow
+  .arrow {
+    position: relative;
+    height: 1rem;
+    margin: 30px;
+  }
+  
+  .arrow::before,
+  .arrow::after {
+    content: "";
+    position: absolute;
+    // bottom: 0px;
+    width: 0.13rem;
+    height: 100%;
+    transition: all 0.5s;
+  }
+  // animation arrow si la classe open  est ajouter ou enlever
+  .arrow::before {
+    left: -0.2rem;
+    transform: rotate(45deg);
+    background-color: $white;
+  }
+  .arrow::after {
+    left: 0.5rem;
+    transform: rotate(-45deg);
+    background-color: $white;
+  }
+  .open .arrow::before {
+    left: -0.2rem;
+    transform: rotate(-45deg);
+  }
+  .open .arrow::after {
+    left: 0.5rem;
+    transform: rotate(45deg);
+  }
+  
+  

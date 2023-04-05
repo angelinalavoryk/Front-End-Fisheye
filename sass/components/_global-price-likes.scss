@@ -1,0 +1,27 @@
+// Totale likes et tarifs
+.total_likes_price-container{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+    position: fixed;
+    padding: 0.5rem 1rem;
+    bottom: 0;
+    right: 5%;
+    background-color: $secondary-bg;
+    height: auto;
+    width: 270px;
+    border-radius: 0.6rem 0.6rem 0 0;
+    color: $black;
+    margin: auto;
+  }
+  
+  .total_likes{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .total-p{
+    margin: 0;
+  }

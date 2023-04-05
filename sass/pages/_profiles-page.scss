@@ -1,11 +1,12 @@
 a{
-  text-decoration: none;
+  text-decoration:   none;
 }
+
 // ---------------- Header de la page -----------------
 .photographer_header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: #FAFAFA;
+    background-color: $bg-profil-header;
     height: 300px;
     margin: 0 100px;
   }
@@ -27,7 +28,7 @@ a{
 
   .photographer_tagline{
     font-size: 1.125rem;
-    color: #525252;
+    color: $tagline-profil-txt;
   }
 
   .button_container {
@@ -41,16 +42,46 @@ a{
 .contact_button {
     font-size: 20px;
     font-weight: 700;
-    color: white;
+    color: $white;
     padding: 11px;
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: $primary;
     border-radius: 5px;
     cursor: pointer;
+    &:hover{
+      filter: brightness(1.1);
+    }
 }
 
+.profiil-button{
+  transition: 0.5s;
+  &:hover{
+    background-color: $secondary-bg;
+    color: $black;
+  }
+}
+
+
+@media screen and (max-width: 767px){
+  .photographer_header{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 150px;
+    gap: 30px;
+    height: 600px;
+  }
+}
+
+
+
+
+// --------------------- media ---------------------------
 .photographer_container-img {
     grid-column: 3;
     grid-row: 1;
@@ -59,131 +90,15 @@ a{
     align-items: center;
   }
 
-// -------------------- Forme de contact ------------------
-  .contact_modal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(54, 29, 29, 0.4);
-  }
-
-  .modal{
-    background-color: #DB8876;
-    margin: 5% auto;
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .modal_body{
-    padding: 15px 8%;
-    margin: 15px auto;
-  }
-.modal_header{
-    display: flex;
-    flex-direction: column;
-}
-.modal_title{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal_title-h2{
-    margin: 0;
-    font-size: 3rem;
-    font-weight: normal;
-}
-
-.modal_title-name{
-  font-size: 3rem;
-  font-weight: normal;
-  margin: 0;
-}
-
-.modal_close-icon{
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    align-items: flex-start;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-}
-.form_title{
-    color: #312E2E;
-    font-size: 1.2rem;
-}
-
-.text-control{
-    height: 50px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    padding: 10px;
-}
-
-#text{
-    height: 80px;
-    font-size: 1rem;
-}
-
-.button_send{
-    margin-top: 1.5rem;
-}
-
-
-// ---------- Message de confirmation - form de contact ------------------ 
-#confirm_contact-modal{
-   display: none;
-}
-
-.modal_confirm{
-    display: flex;
-    height: 510px;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    
-}
-
-.modal_confirm-h2{
-    margin-top: 10rem;
-    font-size: 1.5rem;
-}
-
-.modal_header-confirmation{
-    display: flex;
-    justify-content: space-between;
-}
-.confirmation_logo{
-    width: 30%;
-}
-
-.btn_close{
-  margin-top: 9rem;
-}
-
-
-
-
-// -------------- SECTION gallerie photos -------------------
 .media{
     margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 90px;
-    // margin: 0 100px;
-
-
+    margin-bottom: 50px;
 }
+
 
 //article 
 .media_container{
@@ -192,20 +107,24 @@ flex-direction: column;
 }
 //image ou vidéo
 .media_element{
-  background-color: #C4C4C4;
-  width: 360px;
-  height: 300px;
-  object-fit: cover;
-  cursor: pointer;
+background-color: $bg-img;
+width: 360px;
+height: 300px;
+object-fit: cover;
+cursor: pointer;
+filter: brightness(0.9);
+  &:hover{
+  filter: brightness(1);
+  }
     
 }
 //div container pour le texte
 .media_text-container{
 display: flex;
 justify-content: space-between;
-color: #901C1C;
+color: $primary;
 align-items: center;    
-max-width: 90%; 
+// max-width: 95%; 
 gap: 5px;
 
 
@@ -213,7 +132,7 @@ gap: 5px;
 //h2 titre de photo
 .media_text-title {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     max-width: 70%;
     white-space: nowrap; 
     overflow: hidden; 
@@ -224,299 +143,25 @@ gap: 5px;
     display: flex;
     gap: 5px;
     align-items: center;
-    max-width: 13%;
+    // max-width: 13%;
+    //p pour le nb de likes
+    .media_text-likes{
+    margin: 0;
+    font-size: 20px;
+  }
+
 }
-//p pour le nb de likes
-.media_text-likes{
-margin: 0;
-font-size: 24px;
-}
+
 //i icone heart
 .media_likes-heart{
-    font-size: 20px;
-    cursor: pointer;
-}
-
-
-// ------------------- Light Box - Slider -----------------------------
-.lightBox_container{
-  display: none;
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-}
-.lightBox_slider{
-  width: 100%;
-  height: 100%;
-}
-
-ul{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  margin-top: 70px;
-  border-radius: 10px;
-  overflow: hidden;
-  list-style: none;
-}
-
-li{
-  width: 100%;
-  height: 100%;
-  .media_img{
-    margin: auto;
-    display: flex;
-    height: 85%;
-    width: 50%;
-    border-radius: 5px;
-    background-color: rgb(134, 134, 134);
-    object-fit: cover;
-  }
-  .media_video{
-    display: flex;
-    margin: auto;
-    height: 85%;
-    width: 50%;
-    border-radius: 5px;
-    background-color: rgb(134, 134, 134);
-    object-fit: cover;
-  }
-}
-
-.lightBox_commandes-container{
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  .lightBox_close{
-    position: absolute;
-    border: none;
-    background-color: transparent;
-    font-size: 2rem;
-    top: 2%;
-    right: 7%;
-    font-size: x-large;
-    cursor: pointer;
-    color: #901C1C;
-  }
-  .prev_and_next{
-    position: absolute;
-    width: 60px;
-    height: 100px;
-    background-color: transparent;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: #901C1C;
-  }
-  em {
-    font-size: 40px;
-    position: relative;
-  }
-}
-
-.lightBox_commandes-container button:nth-child(1) {
-  top: 40%;
-  transform: translate(-50%);
-  left: 10%;
-}
-
-.lightBox_commandes-container button:nth-child(1) em {
-  left: -10px;
-}
-
-.lightBox_commandes-container button:nth-child(2) {
-  top: 40%;
-  transform: translate(50%);
-  right: 7%;
-}
-
-.lightBox_commandes-container button:nth-child(2) em {
-  right: 7%;
-}
-
-.lightBox_slider-title{
-  position: absolute;
-  // margin-right: 10%;
-  bottom: 2%;
-  left: 25%;
-  margin: auto;
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #901C1C;
-}
-
-
-
-// Totale likes et tarifs
-.total_likes_price-container{
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  align-items: center;
-  position: fixed;
-  padding: 0.5rem 1rem;
-  bottom: 0;
-  right: 5%;
-  background-color: #db8876;
-  height: auto;
-  width: 270px;
-  border-radius: 0.6rem 0.6rem 0 0;
-  color: black;
-  margin: auto;
-}
-
-.total_likes{
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.total-p{
-  margin: 0;
-}
-
-
-
-
-
-
-// ----------------------- Filter -------------------------
-.filter {
-  display: block;
-  margin: 0 100px;
-  margin-top: 20px;
-}
-
-.trierPar{
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.dropdownMenu {
-  width: 10.625rem;
-}
-.filter_container{
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.filter-select {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.filter-select__trigger {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  font-size: 1.3rem;
-  color: white;
-  height: 3rem;
-  background: #901C1C;
+  font-size: 20px;
   cursor: pointer;
-  border-radius: 5px;
-}
-
-.filter-options-container {
-  position: absolute;
-  display: block;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #901C1C;
-  transition: all 0.5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.filter-select.open {
-  .filter-options-container {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .filter-select__trigger {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+  &:hover{
+  transform: scale(1.1);
   }
 }
-
-.filter-option {
-  // position: relative;
-  display: block;
-  margin: 0 1rem 0;
-  font-size: 1.3rem;
-  color: white;
-  line-height: 4rem;
-  cursor: pointer;
-  transition: all 0.5s;
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  &.selected {
-    display: none;
-  }
-  &:not(.selected) {
-    border-top: solid 0.1rem white;
-  }
-}
-
-// creation arrow
-.arrow {
-  position: relative;
-  height: 1rem;
-  margin: 30px;
-}
-
-.arrow::before,
-.arrow::after {
-  content: "";
-  position: absolute;
-  // bottom: 0px;
-  width: 0.13rem;
-  height: 100%;
-  transition: all 0.5s;
-}
-// animation arrow si la classe open  est ajouter ou enlever
-.arrow::before {
-  left: -0.2rem;
-  transform: rotate(45deg);
-  background-color: white;
-}
-.arrow::after {
-  left: 0.5rem;
-  transform: rotate(-45deg);
-  background-color: white;
-}
-.open .arrow::before {
-  left: -0.2rem;
-  transform: rotate(-45deg);
-}
-.open .arrow::after {
-  left: 0.5rem;
-  transform: rotate(45deg);
-}
-
-
-
 
 
 

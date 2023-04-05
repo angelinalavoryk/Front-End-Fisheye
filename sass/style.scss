@@ -1,6 +1,17 @@
-@import 'pages/home-page';
+@import 'utils/guidelines'; //colors
+@import 'utils/animations';
+
+
+@import 'pages/home-page'; 
 @import 'pages/profiles-page';
-@import 'utils/guidelines';
+
+@import 'components/contact-form'; //contact form
+@import 'components/filter'; //filter 
+@import 'components/global-price-likes'; //global price 
+@import 'components/lightBox'; //light box slider
+@import 'components/loader'; //loader spinner
+
+
 
 
 

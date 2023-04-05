@@ -11,20 +11,36 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
+
   <body>
+    <!-- Loader -->
+    <div class="spinner">
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+    <!-- Header Logo -->
     <header class="header">
       <a class="header_link" href="index.html">
         <img src="assets/images/logo.png" class="header_link-logo" alt=""/>
       </a>
   </header>
+
+  <!-- Main -->
     <main id="main_photographer">
-      <!-- Header info photographer -->
+
+    <!-- Header info photographer -->
       <div class="photographer_header">
           <div class="button_container">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <button class="contact_button profiil-button" onclick="displayModal()">Contactez-moi</button>
           </div>
       </div>
-           <!--  Filter-->
+
+     <!--  Filter-->
      <section class="filter">
       <div class="filter_container">
       <h3 id="trierPar">Trier par </h3>
@@ -56,7 +72,6 @@
         </div>
         <h3 class="modal_title-name"></h3>
       </header>
-
       <form class="form" name="reserve" action="submit-form.php" method="post" autocomplete="on">
         <label class="form_title" for="first">Prénom</label>
         <input class="text-control" type="text" id="first" name="first" placeholder="prénom" required aria-required="true" aria-label="Votre prénom" />
@@ -77,7 +92,7 @@
         <button class="contact_button button_send" type="submit" role="button" aria-label="Envoyer le formulaire de contact">Envoyer</button>
     </form>
         </div>
-        <!-- Message de confirmation -->
+        <!-- Confirm message contact form-->
           <div class="contact_modal" id="confirm_contact-modal" role="dialog" aria-modal="true"> 
             <div class="modal modal_confirm">
               <header class="modal_header-confirmation" aria-labelledby="confirmation_title">
@@ -90,6 +105,7 @@
           </div>
         </div>
       </div>
+
       <!-- Gallerie de photos des photographes -->
     <section class="media"></section>
 
@@ -105,23 +121,19 @@
     </section>
 
     <!-- LightBox Slider -->
-    <section class="lightBox_container">
+    <section class="lightBox_container" role="dialog" aria-labelledby="lightBox_slider-title" aria-modal="true">
       <div class="lightBox_slider">
-      
-      <div class="lightBox_commandes-container">
-        <button class="prev_and_next" id="prev"><em class="fas fa-chevron-left"></em></button>
-        <button class="prev_and_next" id="next"><em class="fas fa-chevron-right"></em></button>
-        <button class="lightBox_close"><em class="fas fa-times close-lightbox-media"></em></button>
-        <h2 class="lightBox_slider-title"></h2>
+        <div class="lightBox_commandes-container">
+          <button class="prev_and_next" id="prev" aria-label="Précédent"><em class="fas fa-chevron-left"></em></button>
+          <button class="prev_and_next" id="next" aria-label="Suivant"><em class="fas fa-chevron-right"></em></button>
+          <button class="lightBox_close" aria-label="Fermer"><em class="fas fa-times close-lightbox-media"></em></button>
+          <h2 class="lightBox_slider-title" id="lightBox_slider-title"></h2>
+        </div>
       </div>
-    </div>
     </section>
-
-
-
-
-
   </main>
+
+
   <script src="./scripts/factories/lightBox.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>

@@ -1,0 +1,63 @@
+@keyframes home_apparition {
+    from {
+      transform:                translateY(30%);
+      opacity:                  0;
+    }
+    to {
+      transform:                translateY(0%);
+      opacity:                  1;
+    }
+  }
+
+  @keyframes apparition_modal {
+    from {
+      transform:                translateY(-30%);
+    }
+    to {
+      transform:                translateY(0%);
+    }
+  }
+
+
+// ------------------ Loader ----------------------
+@keyframes spinner {
+    0% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+  @keyframes loader {
+    0% {transform:rotate(-45deg)}
+    50%{transform:rotate(-135deg)}
+    100%{transform:rotate(-225deg)}
+  }
+  @keyframes span-1 {
+    0% {transform:translate(0);}
+    50%{transform:translate(-50px, 0);border-color:$secondary-txt}
+    100%{transform:translate(0);}}
+  @keyframes span-2 {
+    0%{transform:translate(0);}
+    50%{transform:translate(50px, 0);border-color:$secondary-txt}
+    100%{transform:translate(0);}}
+  @keyframes span-3 {
+    0%{transform:translate(0);}
+    50%{transform:translate(0, -50px);border-color:$secondary-bg}
+    100%{transform:translate(0);}}
+  @keyframes span-4 {
+    0%{transform:translate(0);}
+    50%{transform:translate(0, 50px);border-color:$secondary-bg}
+    100%{transform:translate(0);}}
+  
+
+  
+// ------------------ open modal / lightBox -----------------------
+  @keyframes open{
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
