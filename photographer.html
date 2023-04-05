@@ -13,20 +13,21 @@
   </head>
 
   <body>
-    <!-- Loader -->
-    <div class="spinner">
-    <div class="loader">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+   <!-- Loader -->
+<div class="spinner" role="alert" aria-busy="true" aria-live="polite">
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+</div>
+
 
     <!-- Header Logo -->
     <header class="header">
       <a class="header_link" href="index.html">
-        <img src="assets/images/logo.png" class="header_link-logo" alt=""/>
+        <img src="assets/images/logo.png" class="header_link-logo" alt="logo"/>
       </a>
   </header>
 
@@ -36,30 +37,31 @@
     <!-- Header info photographer -->
       <div class="photographer_header">
           <div class="button_container">
-            <button class="contact_button profiil-button" onclick="displayModal()">Contactez-moi</button>
+            <button class="contact_button profiil-button" onclick="displayModal()" aria-label="Ouvrir le formulaire de contact">Contactez-moi</button>
           </div>
       </div>
 
   <!-- Filter-->
-<section class="filter">
-  <div class="filter_container">
-    <h3 id="trierPar">Trier par </h3>
-    <div class="dropdownMenu">
-      <div class="filter-select">
-        <a href="#" role="button" class="filter-select__option" aria-controls="filter-options"
-            aria-haspopup="listbox" aria-label="Trier par">
-            <span id="sortType">Popularité</span>
-            <div class="arrow"></div>
-        </a>
-        <div class="filter-options-container" role="listbox" id="filter-options">
-            <a href="#" class="filter-option selected">Popularité</a>
-            <a href="#" class="filter-option">Date</a>
-            <a href="#" class="filter-option">Titre</a>
+  <section class="filter">
+    <div class="filter_container">
+      <h3 id="trierPar">Trier par </h3>
+      <div class="dropdownMenu">
+        <div class="filter-select">
+          <a href="#" role="button" class="filter-select__option" aria-controls="filter-options"
+              aria-haspopup="listbox" aria-labelledby="trierPar filter-select__option-label">
+              <span id="sortType">Popularité</span>
+              <div class="arrow"></div>
+              <span class="sr-only" id="filter-select__option-label">Sélectionner un type de tri</span>
+          </a>
+          <div class="filter-options-container" role="listbox" id="filter-options" aria-labelledby="trierPar">
+              <a href="#" role="option" class="filter-option selected">Popularité</a>
+              <a href="#" role="option" class="filter-option">Date</a>
+              <a href="#" role="option" class="filter-option">Titre</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 <!-- Contact Forme -->
@@ -111,15 +113,16 @@
     <section class="media"></section>
 
     <!-- Nobre de likes totale et le prix du photographe/jour -->
-    <section class="total_likes_price-container">
-      <div class="total_likes">
-        <p class="number_likes total-p"></p>
-        <i class="fa-solid fa-heart"></i>
-      </div>
-      <div class="price_container ">
-        <p class="price total-p"></p>
-      </div>
-    </section>
+<section class="total_likes_price-container">
+  <div class="total_likes">
+    <p class="number_likes total-p" aria-label="Nombre total de likes"></p>
+    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+  </div>
+  <div class="price_container">
+    <p class="price total-p" aria-label="Prix du photographe par jour"></p>
+  </div>
+</section>
+
 
     <!-- LightBox Slider -->
     <section class="lightBox_container" role="dialog" aria-labelledby="lightBox_slider-title" aria-modal="true">

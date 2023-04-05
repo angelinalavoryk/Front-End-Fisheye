@@ -34,7 +34,7 @@ function validateFirstName() {
         errorFirstName.style.marginTop = '10px';
         firstName.style.border = 'solid #901C1C 2px';//entoure la bordure en rouge pour signaler une erreur.
         return false; //la fonction retourne 'false' 
-    };
+    }
   }
 
   // Fonction qui valide le champ "nom"
@@ -54,7 +54,7 @@ function  validateLastName(){
         errorFirstName.style.marginTop = '10px';
         firstName.style.border = 'solid #901C1C 2px';//entoure la bordure en rouge pour signaler une erreur.
         return false; //la fonction retourne 'false' 
-    };
+    }
   }
 
 
@@ -76,7 +76,7 @@ function  validateLastName(){
         errorEmail.style.marginTop = '10px';
         email.style.border = 'solid #901C1C 2px';
         return false;
-    };
+    }
   }
 
   function validateText(){
@@ -95,7 +95,7 @@ function  validateLastName(){
         errorTextArea.style.marginTop = '10px';
         textArea.style.border = 'solid #901C1C 2px';//entoure la bordure en rouge pour signaler une erreur.
         return false; //la fonction retourne 'false' 
-    };
+    }
 
 
 
@@ -115,7 +115,7 @@ function  validateLastName(){
     if (!formValidate.includes(false)) {//vérifier avec la methode includes si le tableau ne contient pas la valeur false. 
       form.style.display = 'none';//si pas de false, la fonction masque le formulaire
       confirmationValidation.style.display = 'block';//et affiche message de confirmation d'inscriptions "confirmationValidation".
-    };
+    }
     const confirmationCloseBtn = document.querySelector("#button_close");
     confirmationCloseBtn.addEventListener("click", function() {
       const confirmationValidation = document.querySelector("#confirm_contact-modal");
@@ -125,7 +125,7 @@ function  validateLastName(){
       confirmationValidation.style.display = 'none'; // cache le message de confirmation
       document.querySelectorAll('.text-control').forEach(input => input.style.border = '1px solid #ccc'); // Enlève la bordure verte des champs de formulaire
     });
-  };
+  }
 
 
   // Validation des données du formulaire d'inscription avec le bouton "submit"

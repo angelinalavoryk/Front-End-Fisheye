@@ -16,12 +16,12 @@ async function displayData(photographers) {//la fonction prends en paramètre la
         const userCardDOM = photographerModel.getUserCardDOM();//et crée une carte d'info pour les photographes
         photographersSection.appendChild(userCardDOM);//ajoute les cartes 'userCardDOM' comme des enfants de la div = photographer_section.
     });
-};
+}
 
 
 //Fonction 'init' permet d'initialiser l'affichage de la liste des photographes
 async function init() {
     const photographers = await getPhotographers();//appelle la fonction 'getPhotographers' pour récupérer la liste des photographes.
     displayData(photographers);//appelle la fonction 'displayData' pour afficher les cartes de chaque photographe.
-};
+}
 init();
