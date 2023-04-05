@@ -82,5 +82,6 @@ async function init() {
   displayPhoto(media);
   lightBoxInstance.populate(media);
   displayGlobalInfo();
+   
 }
 init();

@@ -495,7 +495,7 @@ a {
   flex-direction: column;
 }
 
-.filter-select__trigger {
+.filter-select__option {
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -505,6 +505,7 @@ a {
   background: #901C1C;
   cursor: pointer;
   border-radius: 5px;
+  justify-content: space-between;
 }
 
 .filter-options-container {
@@ -526,7 +527,7 @@ a {
   opacity: 1;
   visibility: visible;
 }
-.filter-select.open .filter-select__trigger {
+.filter-select.open .filter-select__option {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
