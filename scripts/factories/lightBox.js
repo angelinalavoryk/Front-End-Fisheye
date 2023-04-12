@@ -34,6 +34,9 @@ function LightBox() {
     function close() {
       const box = document.querySelector(".lightBox_container");
       box.style.display = "none";
+      const body = document.querySelector('body');
+      body.style.overflow = 'visible'; // réactive le scroll
+      body.setAttribute('aria-hidden', 'false'); // réactive le contenu pour les lecteurs d'écran
     }
 
     function showMedia(index) {//affiche media correspondnat à l'index
@@ -104,6 +107,9 @@ function LightBox() {
       box.style.display = "block";
       showMedia(currentMediaIndex);
       document.addEventListener("keydown", escapeKeyDown);
+      const body = document.querySelector('body');
+      body.style.overflow = 'hidden'; // empêche le scroll
+      body.setAttribute('aria-hidden', 'true'); // cache le contenu pour les lecteurs d'écran
     }
 
     

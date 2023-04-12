@@ -6,11 +6,18 @@ function displayModal() {
   modalTitle.textContent = photographerName;
   modal.style.display = "block";
   document.addEventListener("keydown", escapeModaleKeyDown);
+  const body = document.querySelector('body');
+  body.style.overflow = 'hidden'; // empêche le scroll
+  body.setAttribute('aria-hidden', 'true'); // cache le contenu pour les lecteurs d'écran
   }
 
 function closeModal() {
     const modal = document.getElementById("modal_container");
     modal.style.display = "none";
+    const body = document.querySelector('body');
+    body.style.overflow = 'visible'; // réactive le scroll
+    body.setAttribute('aria-hidden', 'false'); // réactive le contenu pour les lecteurs d'écran
+
 }
 function escapeModaleKeyDown(event) {
   if (event.key === "Escape") {
