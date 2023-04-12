@@ -66,12 +66,37 @@ function LightBox() {
       }
       showMedia(currentMediaIndex);
     }
+    const closeButton = document.querySelector(".lightBox_close");
+    const prevButton = document.querySelector("#prev");
+    const nextButton = document.querySelector("#next");
+    
+  
+    
+    closeButton.addEventListener("click", () => {
+      lightBoxInstance.close();
+    });
+    
+    prevButton.addEventListener("click", () => {
+      lightBoxInstance.prev();
+    });
+    
+    nextButton.addEventListener("click", () => {
+      lightBoxInstance.next();
+    });
   
     function escapeKeyDown(event) {
       if (event.key === "Escape") {
         close();
       }
     }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        lightBoxInstance.next();
+      } else if (event.key === "ArrowLeft") {
+        lightBoxInstance.prev();
+      }
+    });
   
     async function open(mediaId) {
       currentMediaIndex = media.findIndex((media) => media.id === mediaId);
@@ -80,23 +105,8 @@ function LightBox() {
       showMedia(currentMediaIndex);
       document.addEventListener("keydown", escapeKeyDown);
     }
+
+    
     return { close, open, populate, next, prev,};
   }
-
-  const closeButton = document.querySelector(".lightBox_close");
-  const prevButton = document.querySelector("#prev");
-  const nextButton = document.querySelector("#next");
   const lightBoxInstance = LightBox();
-
-  
-  closeButton.addEventListener("click", () => {
-    lightBoxInstance.close();
-  });
-  
-  prevButton.addEventListener("click", () => {
-    lightBoxInstance.prev();
-  });
-  
-  nextButton.addEventListener("click", () => {
-    lightBoxInstance.next();
-  });

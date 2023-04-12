@@ -6,6 +6,7 @@ function mediaFactory(data){
         mediaCardElement.setAttribute('id', 'media');
       
         const mediaCardLink = document.createElement('a');
+        mediaCardElement.setAttribute('tabindex', '0');
         mediaCardLink.classList.add('media_link');
         mediaCardElement.appendChild(mediaCardLink);
       
@@ -30,11 +31,13 @@ function mediaFactory(data){
 
         const mediaCardLikes = document.createElement('p');
         mediaCardLikes.classList.add('media_text-likes');
+        mediaCardLikes.setAttribute('tabindex', '0');
         mediaCardLikes.textContent = likes;
         mediaLikes.appendChild(mediaCardLikes);
       
         const mediaCardLikesHeart = document.createElement('i');
         mediaCardLikesHeart.classList.add('fa-regular', 'fa-heart', 'media_likes-heart');
+        mediaCardLikesHeart.setAttribute('tabindex', '0');
         mediaLikes.appendChild(mediaCardLikesHeart);
         
         function likeClick(event) {
@@ -60,6 +63,26 @@ function mediaFactory(data){
           
           mediaCardLikes.addEventListener('click', (event) => {// Ajout de l'événement click sur le nombre de likes pour ne pas ouvrir la lightbox
             event.stopPropagation();
+          });
+
+          mediaCardElement.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+              // Naviguer vers la gauche
+            } else if (event.key === 'ArrowRight') {
+              // Naviguer vers la droite
+            }
+          });
+
+          mediaCardElement.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+              lightBoxInstance.open(id);
+            }
+          });
+
+          mediaCardLikesHeart.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+              likeClick(event);
+            }
           });
 
         return {mediaCardElement, id}; // Retourne l'élément DOM et l'id
