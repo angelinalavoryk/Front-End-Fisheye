@@ -1,3 +1,4 @@
+
 function displayModal() {
   const modal = document.getElementById("modal_container");
   const photographerName = document.querySelector(".photographer_name").textContent;

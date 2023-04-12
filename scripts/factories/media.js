@@ -1,4 +1,3 @@
-
 function mediaFactory(data){
     const {id, photographerId, title, image, video, likes, date} = data; 
     function getMediaDOM(){
