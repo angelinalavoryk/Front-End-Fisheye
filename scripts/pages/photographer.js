@@ -1,7 +1,10 @@
+import { lightBoxInstance } from "../factories/lightBox.js";
+import { photographerFactory } from "../factories/factory.js";
+import { mediaFactory } from "../factories/media.js";
 
 // Récupération de l'id du photographe depuis l'url
 const urlParams = (new URL (document.location)).searchParams;//on crée l'objet url et la méthode 'searchParams' récupère les paramètres d'url, 
-const photographerId = urlParams.get('id');//méthode 'get'récupère la valeur de 'id' du photographe dans l'url
+export const photographerId = urlParams.get('id');//méthode 'get'récupère la valeur de 'id' du photographe dans l'url
 
 // La fonction récupère les informations des photographes à partir de leurs id
 async function getPhotographerById(id) {
@@ -15,14 +18,14 @@ async function getPhotographerById(id) {
     return photographer;
 }
 
-async function getMediaByPhotographerID(id) {
+export async function getMediaByPhotographerID(id) {
     const response = await fetch('./data/photographers.json');
     const data = await response.json();//méthode 'json' converti les données en objet 
     const {media} = data;//extraire la liste des photographes de l'objet 
     //Permet de trouver id du photographe dans l'objet 
     return media.filter((singleMedia) => singleMedia.photographerId == id);//méthode 'find' itère sur chaque éléments 'photographers'. 
     //La fonction fléché retourne 'true' si id correspond à id en argument de la fonction 'getPhotographerById'.
-}
+  }
 
 async function displayData(photographer) {
     const headerElement = document.querySelector('.photographer_header'); // Récupérer l'élément header
@@ -43,7 +46,7 @@ async function displayPhoto(media) {
     });
 }
 
-async function displayGlobalInfo() {
+export async function displayGlobalInfo() {
     const infoContainer = document.querySelector('.total_likes_price-container');
     const likesElements = document.querySelectorAll('.media_text-likes');
   

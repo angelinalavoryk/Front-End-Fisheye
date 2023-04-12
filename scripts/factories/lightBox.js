@@ -1,3 +1,5 @@
+import { photographerId } from "../pages/photographer.js";
+
 function LightBox() {
     let currentMediaIndex = 0; //index du média courant qui est affiché dans la LightBox
     let media = []; //tous les médias pour afficher
@@ -112,4 +114,4 @@ function LightBox() {
     });
     return { close, open, fillAndDisplayLightBox, next, prev,};
   }
-  const lightBoxInstance = LightBox();
+  export const lightBoxInstance = LightBox();

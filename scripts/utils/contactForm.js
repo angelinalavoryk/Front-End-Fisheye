@@ -11,6 +11,10 @@ function displayModal() {
   body.setAttribute('aria-hidden', 'true'); // cache le contenu pour les lecteurs d'écran
   }
 
+  const contactBtn = document.querySelector('.contact_button');
+  contactBtn.addEventListener('click', displayModal);
+
+
 function closeModal() {
     const modal = document.getElementById("modal_container");
     modal.style.display = "none";
@@ -143,6 +147,5 @@ form.addEventListener('submit', function (e) {  //le methode addEventListener aj
     validate(); //appelle la fonction 'validate' qui effectue une validation des données du formulaire.
   });
 
-  const confirmationCloseBtn = document.querySelector("#button_close");//sélectionne élément du DOM avec son id #btn-closed. Bouton "fermer".
 document.querySelector("#button_close").addEventListener("click", closeModal);//ajout de l'évenement sur le bouton "fermer" qui permet de fermer le message de confirmation d'inscription. 
 

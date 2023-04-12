@@ -1,4 +1,4 @@
-// import { photographerFactory } from './factories/factory.js';
+import { photographerFactory } from '../factories/factory.js';
 //La fonction 'getPhotographers' récupère la liste des photographes à partir du fichier json en utilisant fetch
 async function getPhotographers() {
     const response = await fetch('./data/photographers.json');//Fetch() récuperère les données à partir du fichier json qui est dans le dossier 'data'. 

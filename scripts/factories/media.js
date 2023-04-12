@@ -1,5 +1,10 @@
-function mediaFactory(data){
-    const {id, photographerId, title, image, video, likes, date} = data; 
+import { lightBoxInstance } from "../factories/lightBox.js";
+import { displayGlobalInfo } from "../pages/photographer.js";
+
+
+
+export function mediaFactory(data){
+    const {id, photographerId, title, image, video, likes} = data; 
     function getMediaDOM(){
         const mediaCardElement = document.createElement('article');
         mediaCardElement.classList.add('media_container');

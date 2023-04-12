@@ -37,7 +37,7 @@
     <!-- Header info photographer -->
       <div class="photographer_header">
           <div class="button_container">
-            <button class="contact_button profiil-button" onclick="displayModal()" aria-label="Ouvrir le formulaire de contact">Contactez-moi</button>
+            <button class="contact_button profiil-button"  aria-label="Ouvrir le formulaire de contact">Contactez-moi</button>
           </div>
       </div>
 
@@ -103,7 +103,7 @@
                 <img src="assets/icons/close.svg" class="modal_close-icon close" onclick="closeModal()" alt="icone de fermeture"/>
               </header>
                 <h2 class="modal_confirm-h2" id="confirmation_title">Merci d'avoir envoyé votre message.</h2>
-                <button class="contact_button btn_close" id="button_close" id="button_close" aria-describedby="confirmation_description">Fermer</button>
+                <button class="contact_button btn_close" id="button_close">Fermer</button>
             </div>
           </div>
         </div>
@@ -138,11 +138,11 @@
   </main>
 
 
-  <script src="./scripts/factories/lightBox.js"></script>
-    <script src="./scripts/pages/photographer.js"></script>
+  <!-- <script src="./scripts/factories/lightBox.js"></script> -->
+    <script src="./scripts/pages/photographer.js" type="module"></script>
     <script src="./scripts/utils/contactForm.js"></script>
-    <script src="./scripts/factories/factory.js"></script>
-    <script src="./scripts/factories/media.js"></script>
-    <script src="./scripts/utils/sortedMedia.js"></script>
+    <!-- <script src="./scripts/factories/factory.js"></script> -->
+    <!-- <script src="./scripts/factories/media.js"></script> -->
+    <script src="./scripts/utils/sortedMedia.js" type="module"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
   //Fonction 'photographerFactory' crée pour chaque photographes la photo, le nom et la carte d'informations (avec la fonction 'getUserCardDOM')
-  function photographerFactory(data) {
+  export function photographerFactory(data) {
     const { name, portrait, city, country, id, price, tagline, } = data;//(destructuration) extrait les infos et retourne l'objet avec ces infos 
     const picture = `assets/photographers/${portrait}`;//chemin vers les photos dans dossier 'assets'
 
@@ -99,7 +99,6 @@
     }
   return { name, picture, getUserCardDOM, getUserProfilDOM};//renvoie l'objet name et img en appelant la fonction 'getUserCardDOM' qui est dans la fonction 'photographerFactory'
 }
-
 
 
 

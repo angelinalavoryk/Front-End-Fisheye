@@ -1,7 +1,9 @@
-// import { lightBoxInstance } from "../factories/lightBox.js";
-// import { mediaFactory } from "../factories/media.js";
-// import { getMediaByPhotographerID } from "../pages/photographer.js";
-// import { photographerId } from "../pages/photographer.js";
+import { lightBoxInstance } from "../factories/lightBox.js";
+import { mediaFactory } from "../factories/media.js";
+import { getMediaByPhotographerID } from "../pages/photographer.js";
+import { photographerId } from "../pages/photographer.js";
+
+
 
 const filterSelect = document.querySelector('.filter-select__option');
 filterSelect.addEventListener('click', () => {
