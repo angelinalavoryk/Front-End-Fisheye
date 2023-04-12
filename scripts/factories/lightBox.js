@@ -2,7 +2,7 @@ function LightBox() {
     let currentMediaIndex = 0; //index du média courant qui est affiché dans la LightBox
     let media = []; //tous les médias pour afficher
 
-    function populate(newMedia) {//permet de remplir la lightbox avec des medias
+    function fillAndDisplayLightBox(newMedia) {//permet de remplir la lightbox avec des medias
       media = newMedia; //les médias courants sont remplacés par les nouveaux médias qui ont été passés en paramètre
       const box = document.querySelector(".lightBox_container");
       const containerSlider = document.querySelector(".lightBox_slider");
@@ -31,6 +31,18 @@ function LightBox() {
       });
       containerSlider.appendChild(ul);
     }      
+
+    async function open(mediaId) {
+      currentMediaIndex = media.findIndex((media) => media.id === mediaId);
+      const box = document.querySelector(".lightBox_container");
+      box.style.display = "block";
+      showMedia(currentMediaIndex);
+      document.addEventListener("keydown", escapeKeyDown);
+      const body = document.querySelector('body');
+      body.style.overflow = 'hidden'; // empêche le scroll
+      body.setAttribute('aria-hidden', 'true'); // cache le contenu pour les lecteurs d'écran
+    }
+
     function close() {
       const box = document.querySelector(".lightBox_container");
       box.style.display = "none";
@@ -73,8 +85,6 @@ function LightBox() {
     const prevButton = document.querySelector("#prev");
     const nextButton = document.querySelector("#next");
     
-  
-    
     closeButton.addEventListener("click", () => {
       lightBoxInstance.close();
     });
@@ -100,19 +110,6 @@ function LightBox() {
         lightBoxInstance.prev();
       }
     });
-  
-    async function open(mediaId) {
-      currentMediaIndex = media.findIndex((media) => media.id === mediaId);
-      const box = document.querySelector(".lightBox_container");
-      box.style.display = "block";
-      showMedia(currentMediaIndex);
-      document.addEventListener("keydown", escapeKeyDown);
-      const body = document.querySelector('body');
-      body.style.overflow = 'hidden'; // empêche le scroll
-      body.setAttribute('aria-hidden', 'true'); // cache le contenu pour les lecteurs d'écran
-    }
-
-    
-    return { close, open, populate, next, prev,};
+    return { close, open, fillAndDisplayLightBox, next, prev,};
   }
   const lightBoxInstance = LightBox();

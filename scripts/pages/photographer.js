@@ -80,7 +80,7 @@ async function init() {
   const photographer = await getPhotographerById(photographerId);
   displayData(photographer);
   displayPhoto(media);
-  lightBoxInstance.populate(media);
+  lightBoxInstance.fillAndDisplayLightBox(media);
   displayGlobalInfo();
    
 }
