@@ -9,11 +9,10 @@ const filterSelect = document.querySelector('.filter-select__option');
 filterSelect.addEventListener('click', () => {
   filterSelect.parentNode.classList.toggle('open');//aficher ou masquer menu déroulant
 });
-
 const filterOptions = document.querySelectorAll('.filter-option');
 const sortTypeLabel = document.querySelector('#sortType');
 
-function sortByPopularity(media) {//prend un tableau media en paramètre
+function sortByPopularity(media) {
   return media.sort((a, b) => b.likes - a.likes);//renvoie un tableau trié par popularité des likes
 }
 
@@ -22,7 +21,7 @@ function sortByTitle(media) {
 }
 
 function sortByDate(media) {
-  return media.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return media.sort((a, b) => new Date(b.date) - new Date(a.date));//trier par date
 }
 
 async function displaySortedMedia(sortType) {
@@ -60,3 +59,5 @@ filterOptions.forEach((filterOption) => {
     displaySortedMedia(sortType);
   });
 });
+
+

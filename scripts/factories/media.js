@@ -44,6 +44,7 @@ export function mediaFactory(data){
         mediaCardLikesHeart.classList.add('fa-regular', 'fa-heart', 'media_likes-heart');
         mediaCardLikesHeart.setAttribute('tabindex', '0');
         mediaLikes.appendChild(mediaCardLikesHeart);
+        
 
         // Les likes sous les medias
         function likeClick(event) {
@@ -51,32 +52,24 @@ export function mediaFactory(data){
               mediaCardLikesHeart.classList.add('fas'); // Ajoute la classe 'fas' pour remplir le cœur
               mediaCardLikesHeart.classList.remove('far'); // Retire la classe 'far'
               const nbLikes = parseInt(mediaCardLikes.textContent); // Récupère le nombre de likes actuel et le convertit en entier
-              mediaCardLikes.textContent = nbLikes + 1; // Incrémente le nombre de likes et mettre à jour l'affichage
+              mediaCardLikes.textContent = nbLikes + 1; // Incrémente
               displayGlobalInfo(); // Met à jour le nombre total de likes
             } else { // Si le cœur est rempli
-              mediaCardLikesHeart.classList.remove('fas'); // Retire la classe 'fas' pour vider le cœur
-              mediaCardLikesHeart.classList.add('far'); // Ajoute la classe 'far'
-              const nbLikes = parseInt(mediaCardLikes.textContent); // Récupère le nombre de likes actuel et le convertit en entier
-              mediaCardLikes.textContent = nbLikes - 1; // Décrémente le nombre de likes et met à jour l'affichage
-              displayGlobalInfo(); // Met à jour le nombre total de likes
+              mediaCardLikesHeart.classList.remove('fas');
+              mediaCardLikesHeart.classList.add('far');
+              const nbLikes = parseInt(mediaCardLikes.textContent); 
+              mediaCardLikes.textContent = nbLikes - 1; // Décrémente
+              displayGlobalInfo(); 
             }
             event.stopPropagation();
           }
           mediaCardLikesHeart.addEventListener('click', likeClick);
-          
-          mediaCardTitle.addEventListener('click', (event) => {// Ajout de l'événement click sur le titre pour ne pas ouvrir la lightbox
-            event.stopPropagation();
-          });
-          
           mediaCardLikes.addEventListener('click', (event) => {// Ajout de l'événement click sur le nombre de likes pour ne pas ouvrir la lightbox
             event.stopPropagation();
           });
-
-          mediaCardElement.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowLeft') {
-              // Naviguer vers la gauche
-            } else if (event.key === 'ArrowRight') {
-              // Naviguer vers la droite
+          mediaCardLikesHeart.addEventListener('keydown', (event) => { //liker le media avec enter
+            if (event.key === 'Enter') {
+              likeClick(event);
             }
           });
 
@@ -85,13 +78,9 @@ export function mediaFactory(data){
               lightBoxInstance.open(id);
             }
           });
-
-          mediaCardLikesHeart.addEventListener('keydown', (event) => { //liker le media avec enter
-            if (event.key === 'Enter') {
-              likeClick(event);
-            }
+          mediaCardTitle.addEventListener('click', (event) => {// Ajout de l'événement click sur le titre pour ne pas ouvrir la lightbox
+            event.stopPropagation();
           });
-
         return {mediaCardElement, id};
       }
     return {getMediaDOM};
