@@ -1,10 +1,11 @@
 import { photographerId } from "../pages/photographer.js";
 
 function LightBox() {
-    let currentMediaIndex = 0; //index du média courant qui est affiché dans la LightBox
-    let media = []; //tous les médias pour afficher
+    let currentMediaIndex = 0; 
+    let media = []; 
 
-    function fillAndDisplayLightBox(newMedia) {//permet de remplir la lightbox avec des medias
+    //fillAndDisplayLightBox permet de remplir la lightbox avec des medias
+    function fillAndDisplayLightBox(newMedia) {
       media = newMedia; //les médias courants sont remplacés par les nouveaux médias qui ont été passés en paramètre
       const box = document.querySelector(".lightBox_container");
       const containerSlider = document.querySelector(".lightBox_slider");
@@ -17,7 +18,7 @@ function LightBox() {
         const title = document.querySelector(".lightBox_slider-title");
         title.textContent = element.title;
         if (element.image) {//si élement est une img
-          const img = document.createElement("img");//créer img
+          const img = document.createElement("img");
           img.src = `assets/photos/${photographerId}/${element.image}`;
           img.classList.add("media_img");
           img.alt = element.title;
@@ -84,27 +85,23 @@ function LightBox() {
       showMedia(currentMediaIndex);
     }
     const closeButton = document.querySelector(".lightBox_close");
-    const prevButton = document.querySelector("#prev");
-    const nextButton = document.querySelector("#next");
-    
     closeButton.addEventListener("click", () => {
       lightBoxInstance.close();
     });
-    
+    const prevButton = document.querySelector("#prev");
     prevButton.addEventListener("click", () => {
       lightBoxInstance.prev();
     });
-    
+    const nextButton = document.querySelector("#next");
     nextButton.addEventListener("click", () => {
       lightBoxInstance.next();
     });
-  
+    
     function escapeKeyDown(event) {
       if (event.key === "Escape") {
         close();
       }
     }
-
     document.addEventListener("keydown", (event) => {
       if (event.key === "ArrowRight") {
         lightBoxInstance.next();
@@ -112,6 +109,8 @@ function LightBox() {
         lightBoxInstance.prev();
       }
     });
+
     return { close, open, fillAndDisplayLightBox, next, prev,};
   }
+
   export const lightBoxInstance = LightBox();

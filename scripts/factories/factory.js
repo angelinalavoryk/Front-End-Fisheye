@@ -1,53 +1,53 @@
-  //Fonction 'photographerFactory' crée pour chaque photographes la photo, le nom et la carte d'informations (avec la fonction 'getUserCardDOM')
+  //Fonction 'photographerFactory' crée pour chaque photographes la photo, le nom et la carte d'informations
   export function photographerFactory(data) {
-    const { name, portrait, city, country, id, price, tagline, } = data;//(destructuration) extrait les infos et retourne l'objet avec ces infos 
-    const picture = `assets/photographers/${portrait}`;//chemin vers les photos dans dossier 'assets'
+    const { name, portrait, city, country, id, price, tagline, } = data;//destructuration
+    const picture = `assets/photographers/${portrait}`;
 
       function getUserCardDOM() {
-        const photographerCardElement = document.createElement('article');//créé <article> (le container) pour le contenu de chaque photographes. 
+        const photographerCardElement = document.createElement('article');
         
-        //lien a
-        const photographerLinkElement = document.createElement('a');//lien vers la page 'photographer.html' pour chaque photographe.
+        //lien
+        const photographerLinkElement = document.createElement('a');
         photographerLinkElement.href = `photographer.html?id=${id}`;
-        photographerCardElement.appendChild(photographerLinkElement);//<a> enfant de <article>
+        photographerCardElement.appendChild(photographerLinkElement);
     
     
         //l'image
-        const photographerImageElement = document.createElement('img');//photo du photographe
+        const photographerImageElement = document.createElement('img');
         photographerImageElement.classList.add('photographer_img');
-        photographerImageElement.src = `assets/photographers/${portrait}`;//emplacement des photos.
-        photographerImageElement.alt = name;//alt pour la description de la photo.
-        photographerLinkElement.appendChild(photographerImageElement);//img enfant de <a>
+        photographerImageElement.src = `assets/photographers/${portrait}`;
+        photographerImageElement.alt = name;
+        photographerLinkElement.appendChild(photographerImageElement);
     
-        //nom h2
-        const photographerNameElement = document.createElement('h2');//Nom du photographe
+        //nom 
+        const photographerNameElement = document.createElement('h2');
         photographerNameElement.classList.add('photographer_name');
         photographerNameElement.textContent = name;
-        photographerLinkElement.appendChild(photographerNameElement);//h2 nom est l'enfant de <a>
+        photographerLinkElement.appendChild(photographerNameElement);
         
-        //artcile 2 carte
-        const photographerInfoElement = document.createElement('article');//deuxiemem <article> pour les infos en dessous de la photo des photographe
+        //artcile 
+        const photographerInfoElement = document.createElement('article');
         photographerInfoElement.classList.add('photographer_article-info');
-        photographerCardElement.appendChild(photographerInfoElement);//<article 2> enfant du premier <article>
+        photographerCardElement.appendChild(photographerInfoElement);
     
-        //Ville h3
-        const photographerLocationElement = document.createElement('h3');//Ville
+        //Ville 
+        const photographerLocationElement = document.createElement('h3');
         photographerLocationElement.classList.add('photographer_location');
         photographerLocationElement.textContent = `${city}, ${country}`;
-        photographerInfoElement.appendChild(photographerLocationElement);//enfant de l'article 2
+        photographerInfoElement.appendChild(photographerLocationElement);
     
-        //Phrase p
-        const photographerTaglineElement = document.createElement('p');//phrase
+        //Phrase 
+        const photographerTaglineElement = document.createElement('p');
         photographerTaglineElement.classList.add('photographer_tagline');
         photographerTaglineElement.textContent = tagline;
-        photographerInfoElement.appendChild(photographerTaglineElement);//enfnat de l'article 2
+        photographerInfoElement.appendChild(photographerTaglineElement);
     
-        //Prix p
-        const photographerPriceElement = document.createElement('p');//prix
+        //Prix 
+        const photographerPriceElement = document.createElement('p');
         photographerPriceElement.classList.add('photographer_price');
         photographerPriceElement.textContent = `${price}€ / jour`;
-        photographerInfoElement.appendChild(photographerPriceElement);//enfant de l'article 2
-        return photographerCardElement; //renvoie l'artcile avec les infos
+        photographerInfoElement.appendChild(photographerPriceElement);
+        return photographerCardElement; 
       }
 
       function getUserProfilDOM(){
@@ -94,10 +94,9 @@
         profileImg.alt = name;
         profileImgContainer.appendChild(profileImg);
     
-        // photographerHeader.appendChild(profileInfosElement);
         return profileInfosElement;
     }
-  return { name, picture, getUserCardDOM, getUserProfilDOM};//renvoie l'objet name et img en appelant la fonction 'getUserCardDOM' qui est dans la fonction 'photographerFactory'
+  return { name, picture, getUserCardDOM, getUserProfilDOM};
 }
 
 

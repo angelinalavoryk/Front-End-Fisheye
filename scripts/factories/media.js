@@ -2,7 +2,7 @@ import { lightBoxInstance } from "../factories/lightBox.js";
 import { displayGlobalInfo } from "../pages/photographer.js";
 
 
-
+//Les medias de la page photographer
 export function mediaFactory(data){
     const {id, photographerId, title, image, video, likes} = data; 
     function getMediaDOM(){
@@ -44,7 +44,8 @@ export function mediaFactory(data){
         mediaCardLikesHeart.classList.add('fa-regular', 'fa-heart', 'media_likes-heart');
         mediaCardLikesHeart.setAttribute('tabindex', '0');
         mediaLikes.appendChild(mediaCardLikesHeart);
-        
+
+        // Les likes sous les medias
         function likeClick(event) {
             if (!mediaCardLikesHeart.classList.contains('fas')) { // Si le cœur n'est pas rempli
               mediaCardLikesHeart.classList.add('fas'); // Ajoute la classe 'fas' pour remplir le cœur
@@ -61,7 +62,8 @@ export function mediaFactory(data){
             }
             event.stopPropagation();
           }
-          mediaCardLikesHeart.addEventListener('click', likeClick);// Ajout de l'événement click sur le coeur
+          mediaCardLikesHeart.addEventListener('click', likeClick);
+          
           mediaCardTitle.addEventListener('click', (event) => {// Ajout de l'événement click sur le titre pour ne pas ouvrir la lightbox
             event.stopPropagation();
           });
@@ -78,19 +80,19 @@ export function mediaFactory(data){
             }
           });
 
-          mediaCardElement.addEventListener('keydown', (event) => {
+          mediaCardElement.addEventListener('keydown', (event) => { //ouvrir le media avec enter
             if (event.key === 'Enter') {
               lightBoxInstance.open(id);
             }
           });
 
-          mediaCardLikesHeart.addEventListener('keydown', (event) => {
+          mediaCardLikesHeart.addEventListener('keydown', (event) => { //liker le media avec enter
             if (event.key === 'Enter') {
               likeClick(event);
             }
           });
 
-        return {mediaCardElement, id}; // Retourne l'élément DOM et l'id
+        return {mediaCardElement, id};
       }
     return {getMediaDOM};
   }
