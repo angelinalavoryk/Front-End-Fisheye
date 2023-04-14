@@ -1,4 +1,4 @@
-
+// Formulaire de contact
 function displayModal() {
   const modal = document.getElementById("modal_container");
   const photographerName = document.querySelector(".photographer_name").textContent;
@@ -8,7 +8,8 @@ function displayModal() {
   document.addEventListener("keydown", escapeModaleKeyDown);
   const body = document.querySelector('body');
   body.style.overflow = 'hidden'; // empêche le scroll
-  body.setAttribute('aria-hidden', 'true'); // cache le contenu pour les lecteurs d'écran
+  body.classList.add('modal-open');
+  modal.setAttribute('aria-hidden', 'false');
   }
   const contactBtn = document.querySelector('.contact_button');
   contactBtn.addEventListener('click', displayModal);
@@ -18,8 +19,13 @@ function closeModal() {
     modal.style.display = "none";
     const body = document.querySelector('body');
     body.style.overflow = 'visible'; // réactive le scroll
-    body.setAttribute('aria-hidden', 'false'); // réactive le contenu pour les lecteurs d'écran
+    body.classList.remove('modal-open');
+    modal.setAttribute('aria-hidden', 'true');
 }
+
+
+
+
 function escapeModaleKeyDown(event) {
   if (event.key === "Escape") {
       closeModal();
@@ -87,7 +93,7 @@ function  validateLastName(){
   function validateText(){
     const errorTextArea = document.querySelector("#errorText");
     const textArea = document.querySelector("#text");
-    if (textArea.value.trim().length >= 15) {
+    if (textArea.value.trim().length >= 2) {
         errorTextArea.style.display = 'none';
         textArea.style.border = 'none';
         return true; 

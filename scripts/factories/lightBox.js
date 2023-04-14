@@ -4,16 +4,19 @@ function LightBox() {
     let currentMediaIndex = 0; 
     let media = []; 
 
+
     //fillAndDisplayLightBox permet de remplir la lightbox avec des medias
     function fillAndDisplayLightBox(newMedia) {
-      media = newMedia; //les médias courants sont remplacés par les nouveaux médias qui ont été passés en paramètre
+      media = newMedia; 
       const box = document.querySelector(".lightBox_container");
       const containerSlider = document.querySelector(".lightBox_slider");
       box.appendChild(containerSlider);
       const ul = document.createElement("ul");
+      ul.setAttribute("role", "list"); // Ajoute le rôle "list" à l'élément "ul"
       media.forEach((element, index) => { //parcourir tous les medias
         const li = document.createElement("li");
         li.setAttribute("id", `media_${index}`);//identifiant en fonction de l'index du media
+        li.setAttribute("role", "listitem"); // Ajoute le rôle "listitem" à l'élément "li"
         li.style.display = "none";
         const title = document.querySelector(".lightBox_slider-title");
         title.textContent = element.title;
@@ -44,8 +47,11 @@ function LightBox() {
       const body = document.querySelector('body');
       body.style.overflow = 'hidden'; // empêche le scroll
       body.setAttribute('aria-hidden', 'true'); // cache le contenu pour les lecteurs d'écran
+      box.setAttribute('aria-hidden', 'false'); // ajoute le rôle dialog
+      box.setAttribute('role', 'dialog'); // ajoute le rôle dialog
+      box.setAttribute('aria-modal', 'true'); // indique que la boîte de dialogue est modale
+      box.setAttribute('aria-describedby', `media_${currentMediaIndex}`); // décrit le contenu
     }
-
     function close() {
       const box = document.querySelector(".lightBox_container");
       box.style.display = "none";
@@ -110,6 +116,7 @@ function LightBox() {
       }
     });
 
+    
     return { close, open, fillAndDisplayLightBox, next, prev,};
   }
 

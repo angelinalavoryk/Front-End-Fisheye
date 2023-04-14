@@ -1,4 +1,5 @@
 // -------------------- Forme de contact ------------------
+
 .contact_modal{
     display: none;
     position: fixed;
@@ -110,3 +111,45 @@
 .btn_close{
   margin-top: 9rem;
 }
+
+
+
+/* Styles pour les états de focus et les états de survol */
+:focus {
+    outline: none;
+  }
+  
+  :focus-visible {
+    outline: 2px solid blue;
+  }
+  
+  button:hover,
+  button:focus,
+  a:hover,
+  a:focus,
+  input:hover,
+  input:focus,
+  textarea:hover,
+  textarea:focus {
+    outline: 2px solid blue;
+  }
+  
+  /* Styles pour les étiquettes de formulaire */
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Styles pour les champs de saisie de formulaire */
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+
+
+
+  

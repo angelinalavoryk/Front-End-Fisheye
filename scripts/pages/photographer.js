@@ -49,7 +49,6 @@ export async function displayGlobalInfo() {
     const response = await fetch('./data/photographers.json');
     const data = await response.json();
     const photographer = data.photographers.find(p => p.id === parseInt(photographerId));
-
   // Calculer le nombre total de likes en additionnant les valeurs de chaque élément
     let likes = 0;
     likesElements.forEach(element => {//itérer sur tous les élément avec les likes et ajouter à la variable likes.
